@@ -159,7 +159,7 @@ my_cursor = mydb.cursor()`,
     ],
   },
   {
-    id: "afk-monitoring",
+    id: "afk-monitoring-system",
     title: "AFK Monitoring System",
     description: "An Automated Power Shutdown System (APSS) that monitors idle time and initiates automatic shutdown.",
     longDescription:
@@ -262,7 +262,7 @@ class Countdown:
     ],
   },
   {
-    id: "secure-chat",
+    id: "secure-chat-api",
     title: "Secure Chat API",
     description:
       "A highly secure, encrypted messaging system with Blockchain Authentication for user verification and message integrity.",
@@ -369,7 +369,7 @@ def verify_message(message, blockchain_hash):
     ],
   },
   {
-    id: "infinity-dev-bot",
+    id: "infinity-developer-discord-bot",
     title: "Infinity Developer Discord Bot",
     description: "An advanced tool designed to manage and customize font styles across Discord channels automatically.",
     longDescription:

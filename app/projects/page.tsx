@@ -26,7 +26,7 @@ const projectsData: ProjectItem[] = [
     technologies: ["Python", "Tkinter", "MySQL"],
   },
   {
-    id: "afk-monitoring",
+    id: "afk-monitoring-system",
     title: "AFK Monitoring System",
     shortDescription:
       "Developed a system to monitor idle time on a computer and shut it down if idle time exceeds the allowed limit.",
@@ -36,7 +36,7 @@ const projectsData: ProjectItem[] = [
     technologies: ["Python", "PyAutoGUI"],
   },
   {
-    id: "secure-chat",
+    id: "secure-chat-api",
     title: "Secure Chat API",
     shortDescription: "Developed a Secure Chat API with end-to-end encryption and Blockchain-based authentication.",
     description:
@@ -45,7 +45,7 @@ const projectsData: ProjectItem[] = [
     technologies: ["Python", "Blockchain", "Encryption", "Smart Contracts"],
   },
   {
-    id: "infinity-dev-bot",
+    id: "infinity-developer-discord-bot",
     title: "Infinity Developer Discord Bot",
     shortDescription: "Developed a fully automated bot to manage guild channels, duties, and settings on Discord.",
     description:
