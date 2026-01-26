@@ -408,7 +408,7 @@ export default function Page() {
           className="w-full max-w-7xl mx-auto relative z-10 text-center px-4 md:px-6 pt-16"
         >
           <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4">SHAIK MOHAMED FAHAD .T</h1>
-          <h2 className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8">Python Developer</h2>
+          <h2 className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8">Full Stack Developer</h2>
           <div className="flex justify-center gap-4">
             <Link href="https://github.com/i-am-smf" target="_blank">
               <Button
