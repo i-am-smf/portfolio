@@ -22,6 +22,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  themeColor: "#1f3451",
 }
 
 export const metadata: Metadata = {
@@ -49,15 +50,16 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: shareTitle,
     description: shareDescription,
     images: [
       {
-        url: "/og/1x1.png",
-        width: 1254,
-        height: 1254,
+        url: "/og/16x9.png",
+        width: 1672,
+        height: 941,
         alt: shareAlt,
+        type: "image/png",
       },
     ],
   },
