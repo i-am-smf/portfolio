@@ -1,167 +1,201 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useId, useRef, useState } from "react"
 import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
+import { usePathname } from "next/navigation"
+import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { X } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/experience", label: "Experience" },
+  { href: "/projects", label: "Projects" },
+  { href: "/education", label: "Education" },
+  { href: "/achievements", label: "Achievements" },
+  { href: "/certificates", label: "Certificates" },
+  { href: "/timeline", label: "Timeline" },
+]
+
+const resumeHref = "/resume"
+
+function isActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/"
+  return pathname === href || pathname.startsWith(`${href}/`)
+}
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false)
-  const [isNavHovered, setIsNavHovered] = useState(false)
-  const [activeItem, setActiveItem] = useState<string | null>(null)
+  const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const menuId = useId()
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 0)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
     }
   }, [isMobileMenuOpen])
 
-  const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/projects", label: "Projects" },
-    { href: "/education", label: "Education" },
-    { href: "/achievements", label: "Achievements" },
-    { href: "/certificates", label: "Certificates" },
-    { href: "/contact", label: "Contact" },
-  ]
+  useEffect(() => {
+    if (!isMobileMenuOpen) return
+
+    const panel = panelRef.current
+    if (!panel) return
+
+    const getFocusable = () =>
+      Array.from(panel.querySelectorAll<HTMLElement>("a[href], button:not([disabled])")).filter(
+        (element) => !element.hasAttribute("disabled") && element.tabIndex !== -1,
+      )
+
+    const focusable = getFocusable()
+    focusable[0]?.focus()
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileMenuOpen(false)
+        menuButtonRef.current?.focus()
+        return
+      }
+
+      if (event.key !== "Tab") return
+
+      const items = getFocusable()
+      if (items.length === 0) return
+      const first = items[0]
+      const last = items[items.length - 1]
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown)
+    return () => document.removeEventListener("keydown", onKeyDown)
+  }, [isMobileMenuOpen])
+
+  const closeMenu = () => {
+    setIsMobileMenuOpen(false)
+    menuButtonRef.current?.focus()
+  }
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false)
+  }, [pathname])
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "bg-background/50 backdrop-blur-sm border-b" : "bg-transparent",
-      )}
-    >
-      <div className="container mx-auto">
-        <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="text-xl font-semibold">
-            SMF
-          </Link>
-          <nav
-            className="hidden md:block relative"
-            onMouseEnter={() => setIsNavHovered(true)}
-            onMouseLeave={() => {
-              setIsNavHovered(false)
-              setActiveItem(null)
-            }}
+    <header className="sticky top-0 z-50 border-b border-border bg-background pt-[env(safe-area-inset-top)]">
+      <div className="page-frame flex h-16 items-center justify-between gap-3">
+        <Link href="/" className="inline-flex min-h-11 min-w-11 items-center font-serif text-lg font-semibold tracking-tight">
+          <span className="min-[1440px]:hidden">SMF</span>
+          <span className="hidden min-[1440px]:inline">Shaik Mohamed Fahad T</span>
+        </Link>
+
+        <nav className="hidden items-center gap-1 min-[1180px]:flex" aria-label="Primary">
+          {navItems.map((item) => {
+            const active = isActive(pathname, item.href)
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "inline-flex min-h-11 items-center px-2.5 text-sm text-foreground/80",
+                  active && "font-semibold text-primary underline decoration-2 underline-offset-8",
+                )}
+              >
+                {item.label}
+              </Link>
+            )
+          })}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <Button asChild variant="outline" className="hidden min-[420px]:inline-flex">
+            <Link href={resumeHref} aria-current={pathname === resumeHref ? "page" : undefined}>
+              Resume
+            </Link>
+          </Button>
+          <Button asChild className="hidden min-[1180px]:inline-flex">
+            <Link href="/contact">Hire me</Link>
+          </Button>
+          <button
+            ref={menuButtonRef}
+            type="button"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-border min-[1180px]:hidden"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls={menuId}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
           >
-            <AnimatePresence>
-              {isNavHovered && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="absolute inset-0 bg-black/40 backdrop-blur-sm rounded-full fire-outline"
-                />
-              )}
-            </AnimatePresence>
-            <div className="relative px-3 py-1.5">
-              <div className="flex items-center space-x-1">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="relative px-4 py-2 text-sm font-medium text-white/90 rounded-full transition-colors"
-                    onMouseEnter={() => setActiveItem(item.label)}
-                    onMouseLeave={() => setActiveItem(null)}
-                  >
-                    <AnimatePresence>
-                      {isNavHovered && activeItem === item.label && (
-                        <motion.span
-                          layoutId="bubble"
-                          className="absolute inset-0 bg-white/10 rounded-full -z-10 fire-outline-item"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                        />
-                      )}
-                    </AnimatePresence>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </nav>
-          <button className="md:hidden p-2 rounded-lg hover:bg-muted/50" onClick={() => setIsMobileMenuOpen(true)}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-6 w-6"
-            >
-              <line x1="4" y1="12" x2="20" y2="12" />
-              <line x1="4" y1="6" x2="20" y2="6" />
-              <line x1="4" y1="18" x2="20" y2="18" />
-            </svg>
+            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 md:hidden"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-              className="fixed right-0 top-0 h-full w-[80%] max-w-[400px] bg-background border-l z-50 md:hidden"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between p-4 border-b">
-                  <span className="text-lg font-semibold">Menu</span>
-                  <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 hover:bg-muted/50 rounded-lg">
-                    <X className="h-6 w-6" />
-                  </button>
-                </div>
-                <nav className="flex-1 overflow-y-auto">
-                  <div className="flex flex-col p-4 space-y-1">
-                    {navItems.map((item) => (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="px-4 py-3 text-lg font-medium rounded-lg hover:bg-muted/50 transition-colors"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </nav>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {isMobileMenuOpen ? (
+        <div className="min-[1180px]:hidden">
+          <button
+            type="button"
+            className="fixed inset-0 z-40 bg-foreground/20"
+            aria-label="Close menu"
+            onClick={closeMenu}
+          />
+          <div
+            ref={panelRef}
+            id={menuId}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu"
+            className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col border-l border-border bg-background pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+          >
+            <div className="flex h-16 items-center justify-between border-b border-border px-4">
+              <p className="font-serif text-lg font-semibold">Menu</p>
+              <button
+                type="button"
+                className="inline-flex h-11 items-center gap-2 rounded-md px-3 text-sm"
+                onClick={closeMenu}
+              >
+                <X className="h-5 w-5" />
+                Close menu
+              </button>
+            </div>
+            <nav className="flex-1 overflow-y-auto px-3 py-3" aria-label="Mobile">
+              {navItems.map((item) => {
+                const active = isActive(pathname, item.href)
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "flex min-h-11 items-center rounded-md px-3 text-base",
+                      active ? "font-semibold text-primary" : "text-foreground",
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              })}
+            </nav>
+            <div className="flex flex-col gap-3 border-t border-border p-4">
+              <Button asChild variant="outline">
+                <Link href={resumeHref} aria-current={pathname === resumeHref ? "page" : undefined}>
+                  Resume
+                </Link>
+              </Button>
+              <Button asChild>
+                <Link href="/contact">Hire me</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </header>
   )
 }

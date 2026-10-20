@@ -1,14 +1,11 @@
-"use client"
-
+import type { Metadata } from "next"
 import type React from "react"
 
-import { useParams, notFound } from "next/navigation"
-import { motion } from "framer-motion"
+import { notFound } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { PageTitle } from "@/components/site/page-frame"
 import {
-  ArrowLeft,
   Github,
   Database,
   Users,
@@ -16,6 +13,7 @@ import {
   MessageSquare,
   Search,
   Calendar,
+  ClipboardList,
   Clock,
   AlertTriangle,
   PowerOff,
@@ -40,7 +38,9 @@ interface ProjectDetails {
   title: string
   description: string
   longDescription: string
-  sourceUrl: string
+  sourceUrl?: string
+  client?: string
+  organization?: string
   technologies: Array<{
     name: string
     description: string
@@ -65,6 +65,173 @@ interface ProjectDetails {
 }
 
 const projectsData: ProjectDetails[] = [
+  {
+    id: "aayisha-collection-ecommerce",
+    title: "E-Commerce Mobile Application",
+    client: "Aayisha Collection",
+    organization: "Nexudo Tech Solutions",
+    description:
+      "Designed the Aayisha Collection e-commerce app, including the database schema, Flutter mobile structure, admin dashboard, and checkout workflow.",
+    longDescription:
+      "The E-Commerce Mobile Application for Aayisha Collection was developed at Nexudo Tech Solutions. Shaik Mohamed Fahad designed the complete application, including the database schema, the mobile app structure in Flutter and Dart, and the admin dashboard website. Screen layouts and workflows cover product browsing, cart, checkout, and integrated payment processing.",
+    technologies: [
+      { name: "Flutter", description: "Mobile application structure" },
+      { name: "Dart", description: "Mobile application development" },
+    ],
+    features: [
+      {
+        icon: <Layers className="h-5 w-5" />,
+        title: "Complete application design",
+        description: "Database schema, mobile app structure, and admin dashboard website.",
+      },
+      {
+        icon: <ShoppingCart className="h-5 w-5" />,
+        title: "Shopping workflow",
+        description: "Screen layouts for product browsing, cart, and checkout.",
+      },
+      {
+        icon: <Smartphone className="h-5 w-5" />,
+        title: "Payment processing",
+        description: "Checkout workflow with integrated payment processing.",
+      },
+    ],
+    workflow: [
+      "Design the database schema, mobile app structure, and admin dashboard website",
+      "Lay out product browsing, cart, and checkout screens",
+      "Include integrated payment processing in the checkout workflow",
+    ],
+  },
+  {
+    id: "speed-eagle-pest-control",
+    title: "Pest Control Management Software",
+    client: "Speed Eagle Pest Control LLC",
+    organization: "Nexudo Tech Solutions",
+    description:
+      "Designed the database and screens for customer accounts, scheduling, technician assignments, booking, job status, and service reports.",
+    longDescription:
+      "Pest Control Management Software for Speed Eagle Pest Control LLC was developed at Nexudo Tech Solutions. Shaik Mohamed Fahad designed the database schema and application structure for customer accounts, service scheduling, and technician assignments. Screen layouts and workflows cover booking a pest control service, tracking job status, and generating service reports.",
+    technologies: [],
+    features: [
+      {
+        icon: <Users className="h-5 w-5" />,
+        title: "Customer accounts",
+        description: "Application structure for managing customer accounts.",
+      },
+      {
+        icon: <Calendar className="h-5 w-5" />,
+        title: "Scheduling and assignments",
+        description: "Service scheduling and technician assignments.",
+      },
+      {
+        icon: <ClipboardList className="h-5 w-5" />,
+        title: "Booking, status, and reports",
+        description: "Workflows for booking services, tracking job status, and generating service reports.",
+      },
+    ],
+    workflow: [
+      "Design the database schema for customer accounts, service scheduling, and technician assignments",
+      "Lay out booking screens for pest control services",
+      "Track job status and generate service reports",
+    ],
+  },
+  {
+    id: "vibezon-academy",
+    title: "Course Selling Platform",
+    client: "Vibezon Academy",
+    organization: "Nexudo Tech Solutions",
+    description:
+      "Designed the database and screens for the course catalog, enrollment, payments, checkout, and the student dashboard.",
+    longDescription:
+      "The Course Selling Platform for Vibezon Academy was developed at Nexudo Tech Solutions. Shaik Mohamed Fahad designed the database schema and application structure for the course catalog, enrollment, and payment handling. Screen layouts and workflows cover course browsing, checkout, and student dashboard access.",
+    technologies: [],
+    features: [
+      {
+        icon: <Layers className="h-5 w-5" />,
+        title: "Course catalog and enrollment",
+        description: "Application structure for the course catalog and student enrollment.",
+      },
+      {
+        icon: <ShoppingCart className="h-5 w-5" />,
+        title: "Payment handling",
+        description: "Structure for taking payment when a student enrolls.",
+      },
+      {
+        icon: <Users className="h-5 w-5" />,
+        title: "Student access",
+        description: "Screens for course browsing, checkout, and the student dashboard.",
+      },
+    ],
+    workflow: [
+      "Design the database schema for the course catalog, enrollment, and payment handling",
+      "Lay out course browsing and checkout screens",
+      "Provide student dashboard access after enrollment",
+    ],
+  },
+  {
+    id: "miles-away-cargo",
+    title: "Logistics Management System",
+    client: "Miles Away Cargo Private Limited",
+    organization: "Nexudo Tech Solutions",
+    description:
+      "Designed the database and screens for shipment records, vehicle assignment, cargo tracking, dispatch, and delivery confirmation.",
+    longDescription:
+      "The Logistics Management System for Miles Away Cargo Private Limited was developed at Nexudo Tech Solutions. Shaik Mohamed Fahad designed the database schema and application structure for shipment records, vehicle assignment, and cargo tracking. Screen layouts and workflows cover dispatch management, real-time shipment status, and delivery confirmation.",
+    technologies: [],
+    features: [
+      {
+        icon: <Database className="h-5 w-5" />,
+        title: "Shipment records",
+        description: "Application structure for shipment records and cargo tracking.",
+      },
+      {
+        icon: <Server className="h-5 w-5" />,
+        title: "Vehicle assignment",
+        description: "Structure for assigning vehicles to shipments.",
+      },
+      {
+        icon: <ClipboardList className="h-5 w-5" />,
+        title: "Dispatch and delivery",
+        description: "Workflows for dispatch management, real-time shipment status, and delivery confirmation.",
+      },
+    ],
+    workflow: [
+      "Design the database schema for shipment records, vehicle assignment, and cargo tracking",
+      "Lay out dispatch management screens",
+      "Show real-time shipment status and confirm delivery",
+    ],
+  },
+  {
+    id: "food-delivery-subscriptions",
+    title: "Subscription-Based Food Delivery Management System",
+    organization: "Nexudo Tech Solutions",
+    description:
+      "Designed the database and screens for subscription plans, recurring orders, meal customization, and delivery tracking.",
+    longDescription:
+      "The Subscription-Based Food Delivery Management System was developed at Nexudo Tech Solutions. Shaik Mohamed Fahad designed the database schema and application structure for subscription plans, recurring orders, and delivery scheduling. Screen layouts and workflows cover subscription sign-up, meal customization, and delivery tracking.",
+    technologies: [],
+    features: [
+      {
+        icon: <Layers className="h-5 w-5" />,
+        title: "Subscription plans",
+        description: "Application structure for subscription plans and recurring orders.",
+      },
+      {
+        icon: <Calendar className="h-5 w-5" />,
+        title: "Delivery scheduling",
+        description: "Structure for scheduling deliveries against recurring orders.",
+      },
+      {
+        icon: <ShoppingCart className="h-5 w-5" />,
+        title: "Sign-up and tracking",
+        description: "Screens for subscription sign-up, meal customization, and delivery tracking.",
+      },
+    ],
+    workflow: [
+      "Design the database schema for subscription plans, recurring orders, and delivery scheduling",
+      "Lay out subscription sign-up and meal customization screens",
+      "Track delivery after an order is scheduled",
+    ],
+  },
   {
     id: "lifefine-crm",
     title: "LifeFine CRM",
@@ -565,148 +732,177 @@ def db_connection():
   },
 ]
 
-const CodeBlock = ({ code, language }: { code: string; language: string }) => {
+const CodeBlock = ({ code }: { code: string; language: string }) => {
   return (
-    <pre className="p-4 bg-muted rounded-lg overflow-x-auto">
-      <code className="text-sm font-mono text-muted-foreground whitespace-pre">{code}</code>
+    <pre className="max-w-full overflow-x-auto overscroll-x-contain rounded-lg border border-border bg-secondary p-4">
+      <code className="block w-max min-w-full whitespace-pre font-mono text-sm leading-6 text-foreground">{code}</code>
     </pre>
   )
 }
 
-export default function ProjectPage() {
-  const params = useParams()
-  const project = projectsData.find((p) => p.id === params.id)
+const tabTriggerClass =
+  "min-h-11 rounded-md border border-transparent px-4 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] data-[state=active]:border-border data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-none"
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}): Promise<Metadata> {
+  const { id } = await params
+  const project = projectsData.find((item) => item.id === id)
+
+  if (!project) {
+    return { title: "Project" }
+  }
+
+  const client = project.client ? ` for ${project.client}` : ""
+  const where = project.organization ? ` was developed at ${project.organization}.` : ""
+
+  return {
+    title: project.title,
+    description: `${project.title}${client}${where} ${project.description}`.replace(/\s+/g, " ").trim(),
+  }
+}
+
+export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const project = projectsData.find((item) => item.id === id)
 
   if (!project) {
     notFound()
   }
 
-  return (
-    <div className="min-h-screen bg-background text-foreground pt-16">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="container max-w-4xl mx-auto px-4 py-20"
-      >
-        <div className="mb-8">
-          <Link href="/projects">
-            <Button variant="ghost" className="mb-4">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Projects
-            </Button>
-          </Link>
-          <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
-          <p className="text-xl text-muted-foreground mb-6">{project.description}</p>
-          <Link href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
-            <Button className="gap-2">
-              <Github className="h-5 w-5" />
-              View Source Code
-            </Button>
-          </Link>
-        </div>
+  const hasTechnologies = project.technologies.length > 0
+  const hasCode = (project.codeSnippets?.length ?? 0) > 0
 
-        <Tabs defaultValue="overview" className="space-y-8">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="features">Features</TabsTrigger>
-            <TabsTrigger value="tech">Technologies</TabsTrigger>
-            <TabsTrigger value="code">Code</TabsTrigger>
+  return (
+    <div className="fade-in bg-background text-foreground">
+      <div className="page-frame max-w-[760px] py-12 md:py-16">
+        <Link
+          href="/projects"
+          className="inline-flex min-h-11 items-center text-sm font-medium text-primary"
+        >
+          All projects
+        </Link>
+        <PageTitle className="mt-4">{project.title}</PageTitle>
+        {project.client ? <p className="mt-3 text-base">{project.client}</p> : null}
+        {project.organization ? (
+          <p className="mt-1 text-sm text-muted-foreground">Developed at {project.organization}</p>
+        ) : null}
+        <p className="mt-4 max-w-[70ch] text-lg leading-relaxed text-muted-foreground">{project.description}</p>
+        {project.sourceUrl ? (
+          <div className="mt-6">
+            <Button asChild>
+              <Link href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4" />
+                View source
+              </Link>
+            </Button>
+          </div>
+        ) : null}
+
+        <Tabs defaultValue="overview" className="mt-10 min-w-0">
+          <TabsList className="flex h-auto w-full flex-wrap justify-start gap-2 bg-transparent p-0">
+            <TabsTrigger value="overview" className={tabTriggerClass}>
+              Overview
+            </TabsTrigger>
+            <TabsTrigger value="features" className={tabTriggerClass}>
+              Features
+            </TabsTrigger>
+            {hasTechnologies ? (
+              <TabsTrigger value="tech" className={tabTriggerClass}>
+                Technologies
+              </TabsTrigger>
+            ) : null}
+            {hasCode ? (
+              <TabsTrigger value="code" className={tabTriggerClass}>
+                Code
+              </TabsTrigger>
+            ) : null}
           </TabsList>
 
-          <TabsContent value="overview" className="space-y-8">
-            <Card>
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-semibold mb-4">Overview</h2>
-                <p className="text-muted-foreground">{project.longDescription}</p>
-              </CardContent>
-            </Card>
+          <TabsContent value="overview" className="mt-8 space-y-10 focus-visible:outline-none">
+            <section>
+              <h2 className="font-serif text-2xl font-semibold">Overview</h2>
+              <p className="mt-4 max-w-[70ch] leading-relaxed text-muted-foreground">{project.longDescription}</p>
+            </section>
 
-            {project.workflow && (
-              <Card>
-                <CardContent className="p-6">
-                  <h2 className="text-2xl font-semibold mb-4">How It Works</h2>
-                  <div className="space-y-4">
-                    {project.workflow.map((step, index) => (
-                      <div key={index} className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-                          {index + 1}
-                        </div>
-                        <p className="text-muted-foreground pt-1">{step}</p>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            )}
+            {project.workflow ? (
+              <section>
+                <h2 className="font-serif text-2xl font-semibold">How it works</h2>
+                <ol className="mt-4 space-y-4">
+                  {project.workflow.map((step, index) => (
+                    <li key={index} className="flex items-start gap-4">
+                      <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-sm font-medium text-primary">
+                        {index + 1}
+                      </span>
+                      <p className="min-w-0 pt-1 leading-relaxed text-muted-foreground">{step}</p>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            ) : null}
 
-            {project.additionalInfo && (
-              <Card>
-                <CardContent className="p-6">
-                  <h2 className="text-2xl font-semibold mb-4">{project.additionalInfo.title}</h2>
-                  <p className="text-muted-foreground whitespace-pre-line">{project.additionalInfo.content}</p>
-                  {project.additionalInfo.link && (
-                    <Link
-                      href={project.additionalInfo.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline mt-4 inline-block"
-                    >
-                      Learn More
-                    </Link>
-                  )}
-                </CardContent>
-              </Card>
-            )}
+            {project.additionalInfo ? (
+              <section>
+                <h2 className="font-serif text-2xl font-semibold">{project.additionalInfo.title}</h2>
+                <p className="mt-4 max-w-[70ch] whitespace-pre-line leading-relaxed text-muted-foreground">
+                  {project.additionalInfo.content}
+                </p>
+                {project.additionalInfo.link ? (
+                  <Link
+                    href={project.additionalInfo.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex min-h-11 items-center text-sm font-medium text-primary"
+                  >
+                    Learn more
+                  </Link>
+                ) : null}
+              </section>
+            ) : null}
           </TabsContent>
 
-          <TabsContent value="features" className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <TabsContent value="features" className="mt-8 focus-visible:outline-none">
+            <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))]">
               {project.features.map((feature, index) => (
-                <Card key={index}>
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 rounded-lg bg-primary/10 text-primary">{feature.icon}</div>
-                      <h3 className="text-xl font-semibold">{feature.title}</h3>
-                    </div>
-                    <p className="text-muted-foreground">{feature.description}</p>
-                  </CardContent>
-                </Card>
+                <article key={index} className="min-w-0 rounded-lg border border-border bg-card p-5">
+                  <h3 className="font-serif text-lg font-semibold leading-snug">{feature.title}</h3>
+                  <p className="mt-2 leading-relaxed text-muted-foreground">{feature.description}</p>
+                </article>
               ))}
             </div>
           </TabsContent>
 
-          <TabsContent value="tech" className="space-y-8">
-            <Card>
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-semibold mb-6">Technologies Used</h2>
-                <div className="grid gap-6">
-                  {project.technologies.map((tech, index) => (
-                    <div key={index} className="flex items-start gap-4">
-                      <div className="px-3 py-1 rounded bg-primary/10 text-primary font-medium text-sm">
-                        {tech.name}
-                      </div>
-                      <p className="text-muted-foreground">{tech.description}</p>
-                    </div>
-                  ))}
+          {hasTechnologies ? (
+          <TabsContent value="tech" className="mt-8 focus-visible:outline-none">
+            <h2 className="font-serif text-2xl font-semibold">Technologies used</h2>
+            <dl className="mt-4 divide-y divide-border border-y border-border">
+              {project.technologies.map((tech) => (
+                <div key={tech.name} className="grid gap-1 py-4 sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-4">
+                  <dt className="font-medium text-primary">{tech.name}</dt>
+                  <dd className="min-w-0 text-muted-foreground">{tech.description}</dd>
                 </div>
-              </CardContent>
-            </Card>
+              ))}
+            </dl>
           </TabsContent>
+          ) : null}
 
-          <TabsContent value="code" className="space-y-8">
-            {project.codeSnippets?.map((snippet, index) => (
-              <Card key={index}>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{snippet.title}</h3>
-                  <p className="text-muted-foreground mb-4">{snippet.description}</p>
+          {hasCode ? (
+          <TabsContent value="code" className="mt-8 space-y-8 focus-visible:outline-none">
+            {project.codeSnippets?.map((snippet) => (
+              <section key={snippet.title}>
+                <h3 className="font-serif text-xl font-semibold">{snippet.title}</h3>
+                <p className="mt-2 text-muted-foreground">{snippet.description}</p>
+                <div className="mt-4">
                   <CodeBlock code={snippet.code} language={snippet.language} />
-                </CardContent>
-              </Card>
+                </div>
+              </section>
             ))}
           </TabsContent>
+          ) : null}
         </Tabs>
-      </motion.div>
+      </div>
     </div>
   )
 }
