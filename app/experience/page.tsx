@@ -5,7 +5,8 @@ import { experience, type ExperiencePoint } from "@/lib/profile"
 export const metadata: Metadata = {
   title: "Experience",
   description:
-    "Shaik Mohamed Fahad is a Senior Software Developer at Nexudo Tech Solutions (September 2025–present, currently serving notice) and was a freelance full-stack developer from 2023 to 2025.",
+    "Shaik Mohamed Fahad is a Senior Software Developer at Nexudo Tech Solutions and freelanced as a full-stack developer from 2023 to 2025.",
+  alternates: { canonical: "/experience" },
 }
 
 function ExperiencePointText({ point }: { point: ExperiencePoint }) {

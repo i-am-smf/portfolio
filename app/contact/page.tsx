@@ -1,24 +1,13 @@
 "use client"
 
 import Link from "next/link"
-import { Github, Linkedin, Mail, MapPin, Phone, Instagram, MessageCircle, FileText } from "lucide-react"
+import { Github, Linkedin, Mail, MapPin, Instagram, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PageFrame, PageTitle } from "@/components/site/page-frame"
 import { CopyDiscordUsername } from "@/components/site/copy-discord"
-
-const phoneNumber = "917373675313"
+import { ContactForm } from "@/components/site/contact-form"
 
 export default function ContactPage() {
-  const openWhatsApp = () => {
-    const message = "Hi, I'd like to connect with you!"
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-    const whatsappUrl = isMobile
-      ? `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`
-      : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`
-
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer")
-  }
-
   return (
     <div className="fade-in bg-background text-foreground">
       <PageFrame>
@@ -28,17 +17,18 @@ export default function ContactPage() {
           Developer at Nexudo Tech Solutions. Use any option below to get in touch.
         </p>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-2">
+        <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:items-start">
+          <section className="min-w-0 rounded-lg border border-border bg-card p-6">
+            <h2 className="font-serif text-2xl font-semibold">Send a message</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              The form emails me directly. Include what you want built and how to reach you.
+            </p>
+            <ContactForm />
+          </section>
+
           <section className="min-w-0 rounded-lg border border-border bg-card p-6">
             <h2 className="font-serif text-2xl font-semibold">How to reach me</h2>
             <div className="mt-6 flex flex-col">
-              <a href="tel:+917373675313" className="inline-flex min-h-11 items-center gap-3">
-                <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
-                <span>
-                  <span className="block text-sm text-muted-foreground">Phone</span>
-                  +91 73736 75313
-                </span>
-              </a>
               <a href="mailto:fahadguy8@gmail.com" className="inline-flex min-h-11 items-center gap-3 break-all">
                 <Mail className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                 <span>
@@ -46,25 +36,16 @@ export default function ContactPage() {
                   fahadguy8@gmail.com
                 </span>
               </a>
-              <button type="button" onClick={openWhatsApp} className="inline-flex min-h-11 items-center gap-3 text-left">
-                <MessageCircle className="h-5 w-5 text-primary" aria-hidden="true" />
-                <span>
-                  <span className="block text-sm text-muted-foreground">WhatsApp</span>
-                  Message +91 73736 75313
-                </span>
-              </button>
               <p className="inline-flex min-h-11 items-center gap-3">
-                <MapPin className="h-5 w-5 text-primary" aria-hidden="true" />
+                <MapPin className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                 <span>
                   <span className="block text-sm text-muted-foreground">Location</span>
                   Chennai, Tamil Nadu 600042, India
                 </span>
               </p>
             </div>
-          </section>
 
-          <section className="min-w-0 rounded-lg border border-border bg-card p-6">
-            <h2 className="font-serif text-2xl font-semibold">Profiles and resume</h2>
+            <h2 className="mt-8 font-serif text-2xl font-semibold">Profiles and resume</h2>
             <div className="mt-6 grid gap-2">
               <ProfileLink href="https://github.com/i-am-smf" label="GitHub" icon={Github} />
               <ProfileLink

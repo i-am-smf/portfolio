@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Gallery",
   description:
     "Certificates and symposium photos for Shaik Mohamed Fahad, from the .NET course in 2022 through TechQuest 2023.",
+  alternates: { canonical: "/gallery" },
 }
 
 export default function GalleryPage() {

@@ -4,7 +4,8 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Certificates",
   description:
-    "Certificates held by Shaik Mohamed Fahad: .NET Using C# Language from Ameya Cloud (May 2022), RDBMS Using MySQL from GFS India (September 2022), and DevOps on AWS from M.I.E.T. Engineering College (March 2023).",
+    "Certificates held by Shaik Mohamed Fahad in .NET with C#, MySQL, and DevOps on AWS, earned from 2022 to 2023.",
+  alternates: { canonical: "/certificates" },
 }
 
 export default function CertificatesLayout({ children }: { children: ReactNode }) {

@@ -40,16 +40,32 @@ export function Footer() {
           </ul>
         </div>
 
-        <p className="mt-6 border-t border-border pt-4 text-sm text-muted-foreground">
-          © {year} Shaik Mohamed Fahad T. All rights reserved.
-          <span className="hidden sm:inline" aria-hidden="true">
-            {" "}
-            ·{" "}
-          </span>
-          <span className="mt-1 block sm:mt-0 sm:inline">
-            Developed and maintaining by <span className="font-medium text-foreground">i_am_smf_.py</span>
-          </span>
-        </p>
+        <div className="mt-6 flex flex-col gap-4 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-muted-foreground">
+            © {year} Shaik Mohamed Fahad T. All rights reserved.
+            <span className="hidden sm:inline" aria-hidden="true">
+              {" "}
+              ·{" "}
+            </span>
+            <span className="mt-1 block sm:mt-0 sm:inline">
+              Developed and maintaining by <span className="font-medium text-foreground">i_am_smf_.py</span>
+            </span>
+          </p>
+          <a
+            href="https://websitelaunches.com/site/shaikmohamedfahad.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex max-w-full shrink-0"
+          >
+            <img
+              src="https://websitelaunches.com/badge/shaikmohamedfahad.com.svg"
+              alt="Established online - Public launch record"
+              width={255}
+              height={55}
+              className="h-auto w-[min(100%,255px)]"
+            />
+          </a>
+        </div>
       </div>
     </footer>
   )

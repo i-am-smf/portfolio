@@ -4,7 +4,8 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Achievements",
   description:
-    "Awards won by Shaik Mohamed Fahad: 1st prize in Code Battle at Technoholix'23, 1st place in Miniathon at Arcane 2K23, and 2nd place in Zoom in Zoom out at Analytiixfest2k23.",
+    "Awards won by Shaik Mohamed Fahad: first prize at Technoholix'23 and Arcane 2K23, and second place at Analytiixfest2k23.",
+  alternates: { canonical: "/achievements" },
 }
 
 export default function AchievementsLayout({ children }: { children: ReactNode }) {

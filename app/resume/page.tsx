@@ -5,6 +5,7 @@ import { ResumeViewer } from "@/components/site/resume-viewer"
 export const metadata: Metadata = {
   title: "Resume",
   description: "Resume of Shaik Mohamed Fahad, software developer in Chennai. View, download, or print the PDF.",
+  alternates: { canonical: "/resume" },
 }
 
 export default function ResumePage() {

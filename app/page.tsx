@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import type { ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -6,6 +7,10 @@ import { Button } from "@/components/ui/button"
 import { SectionTitle } from "@/components/site/page-frame"
 import { ProjectCard } from "@/components/site/project-card"
 import { currentProjects, experience, profile } from "@/lib/profile"
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+}
 
 const skills = [
   {
@@ -257,9 +262,6 @@ export default function Page() {
           <div className="flex min-w-0 flex-col gap-1">
             <a href="mailto:fahadguy8@gmail.com" className="inline-flex min-h-11 items-center break-all text-base">
               fahadguy8@gmail.com
-            </a>
-            <a href="tel:+917373675313" className="inline-flex min-h-11 items-center text-base">
-              +91 73736 75313
             </a>
             <Button asChild className="mt-3 w-fit">
               <Link href="/contact">Contact page</Link>

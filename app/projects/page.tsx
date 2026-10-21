@@ -6,7 +6,8 @@ import { currentProjects, earlierProjects } from "@/lib/profile"
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Software Shaik Mohamed Fahad designed at Nexudo Tech Solutions: an Aayisha Collection e-commerce app, Speed Eagle pest control software, Vibezon Academy, Miles Away Cargo, and a subscription food delivery system.",
+    "Software Shaik Mohamed Fahad built at Nexudo Tech Solutions, including e-commerce, pest control, academy, cargo, and food delivery apps.",
+  alternates: { canonical: "/projects" },
 }
 
 export default function ProjectsPage() {

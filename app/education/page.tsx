@@ -4,7 +4,8 @@ import { PageFrame, PageTitle } from "@/components/site/page-frame"
 export const metadata: Metadata = {
   title: "Education",
   description:
-    "Shaik Mohamed Fahad earned a B.E. in Computer Science from M.I.E.T. Engineering College (June 2020–April 2024, CGPA 7.30) and completed 12th grade at Sairam Matric Hr. Sec. School (63.5%).",
+    "Shaik Mohamed Fahad earned a B.E. in Computer Science from M.I.E.T. Engineering College, CGPA 7.30, and finished 12th grade at Sairam Matric.",
+  alternates: { canonical: "/education" },
 }
 
 const educationData = [

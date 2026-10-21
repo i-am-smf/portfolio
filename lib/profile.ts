@@ -4,8 +4,6 @@ export const profile = {
   role: "Software Developer | Python Developer",
   location: "Chennai, Tamil Nadu",
   postalCode: "600042",
-  phoneDisplay: "+91 73736 75313",
-  phoneHref: "tel:+917373675313",
   email: "fahadguy8@gmail.com",
   summary:
     "Software developer with hands-on experience designing application workflows, screens, and processes, alongside Python development for APIs, automation tools, and secure communication systems. Comfortable working across design and development to turn planned workflows into working software. Skilled in problem-solving, quick to learn new technologies, and effective in fast-paced development environments.",

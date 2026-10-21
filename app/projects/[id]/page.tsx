@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import type React from "react"
 
 import { notFound } from "next/navigation"
+import { clampMetaDescription } from "@/lib/site"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { PageTitle } from "@/components/site/page-frame"
@@ -760,7 +761,8 @@ export async function generateMetadata({
 
   return {
     title: project.title,
-    description: `${project.title}${client}${where} ${project.description}`.replace(/\s+/g, " ").trim(),
+    description: clampMetaDescription(`${project.title}${client}${where} ${project.description}`),
+    alternates: { canonical: `/projects/${id}` },
   }
 }
 

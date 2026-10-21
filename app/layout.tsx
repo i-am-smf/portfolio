@@ -5,13 +5,9 @@ import { Source_Sans_3, Source_Serif_4 } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/ui/header"
 import { Footer } from "@/components/ui/footer"
+import { getSiteUrl } from "@/lib/site"
 
-const siteUrl = (() => {
-  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`
-  return "http://localhost:3000"
-})()
+const siteUrl = getSiteUrl()
 
 const shareTitle = "Shaik Mohamed Fahad T | Software Developer in Chennai"
 const shareDescription =
@@ -31,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Shaik Mohamed Fahad",
   },
   description:
-    "Shaik Mohamed Fahad T is a software developer in Chennai, Tamil Nadu. He designs application workflows and builds Python, Flask, React, Next.js, and Flutter software. He is a Senior Software Developer at Nexudo Tech Solutions.",
+    "Shaik Mohamed Fahad T is a software developer in Chennai who designs application workflows and builds them in Python, Flask, React, Next.js, and Flutter.",
   authors: [{ name: "Shaik Mohamed Fahad T" }],
   metadataBase: new URL(siteUrl),
   openGraph: {
@@ -82,7 +78,6 @@ const personJsonLd = {
   description:
     "Software developer with hands-on experience designing application workflows, screens, and processes, alongside Python development for APIs, automation tools, and secure communication systems.",
   email: "mailto:fahadguy8@gmail.com",
-  telephone: "+91-73736-75313",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Chennai",

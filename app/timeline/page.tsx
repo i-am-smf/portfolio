@@ -6,7 +6,8 @@ import { timeline } from "@/lib/timeline"
 export const metadata: Metadata = {
   title: "Timeline",
   description:
-    "Timeline of Shaik Mohamed Fahad’s education, courses, symposium awards, freelance work, and role at Nexudo Tech Solutions.",
+    "Timeline of Shaik Mohamed Fahad's education, courses, symposium awards, freelance work, and role at Nexudo Tech Solutions.",
+  alternates: { canonical: "/timeline" },
 }
 
 export default function TimelinePage() {
