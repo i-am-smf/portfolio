@@ -18,8 +18,8 @@ export default function ContactPage() {
       <PageFrame>
         <PageTitle>Contact</PageTitle>
         <p className="mt-4 max-w-[52ch] text-muted-foreground">
-          Shaik Mohamed Fahad is a software developer in Hor Al Anz, Deira, Dubai and is currently serving notice as Senior Software
-          Developer at Nexudo Tech Solutions. Use any option below to get in touch.
+          Shaik Mohamed Fahad is a software developer in Hor Al Anz, Deira, Dubai. He was a Senior Software
+          Developer at Nexudo Tech Solutions until October 2026. Use any option below to get in touch.
         </p>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:items-start">

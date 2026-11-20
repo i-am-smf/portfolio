@@ -119,7 +119,7 @@ export default function Page() {
               {profile.location}
             </div>
             <ul className="mt-8 divide-y divide-border border-y border-border">
-              <li className="py-3 text-sm">Senior Software Developer, Nexudo Tech Solutions</li>
+              <li className="py-3 text-sm">Senior Software Developer, Nexudo Tech Solutions, until Oct 2026</li>
               <li className="py-3 text-sm">Freelance full-stack websites, 2023–2025</li>
               <li className="py-3 text-sm">B.E. Computer Science, CGPA 7.30</li>
             </ul>

@@ -104,10 +104,6 @@ const personJsonLd = {
     addressRegion: "Dubai",
     addressCountry: "AE",
   },
-  worksFor: {
-    "@type": "Organization",
-    name: "Nexudo Tech Solutions",
-  },
   alumniOf: [
     {
       "@type": "CollegeOrUniversity",

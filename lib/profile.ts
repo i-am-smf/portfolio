@@ -27,8 +27,7 @@ export const experience: Array<{
   {
     role: "Senior Software Developer",
     organization: "Nexudo Tech Solutions",
-    duration: "Sep 2025 – Present",
-    status: "Currently serving notice period",
+    duration: "Sep 2025 – Oct 2026",
     points: [
       "Designed application workflows, page and screen layouts, and process flows for software products.",
       "Contributed to application development using Python and Flask, translating designs into working functionality and APIs.",

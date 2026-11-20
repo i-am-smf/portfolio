@@ -5,7 +5,7 @@ import { experience, type ExperiencePoint } from "@/lib/profile"
 export const metadata: Metadata = {
   title: "Experience",
   description:
-    "Shaik Mohamed Fahad is a Senior Software Developer at Nexudo Tech Solutions and freelanced as a full-stack developer from 2023 to 2025.",
+    "Shaik Mohamed Fahad was a Senior Software Developer at Nexudo Tech Solutions from September 2025 to October 2026, and freelanced as a full-stack developer from 2023 to 2025.",
   alternates: { canonical: "/experience" },
 }
 
@@ -37,7 +37,7 @@ export default function ExperiencePage() {
         <PageTitle>Experience</PageTitle>
         <p className="mt-4 max-w-[62ch] text-muted-foreground">
           Shaik Mohamed Fahad designs application workflows and builds them in Python, Flask, React, Next.js, and
-          Flutter. He is currently a Senior Software Developer at Nexudo Tech Solutions and is serving notice.
+          Flutter. He was a Senior Software Developer at Nexudo Tech Solutions from September 2025 to October 2026.
         </p>
         <ol className="mt-10 space-y-10 border-l border-border pl-6">
           {experience.map((item) => (

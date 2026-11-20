@@ -19,6 +19,30 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        has: [{ type: "host", value: "www.shaikmohamedfahad.com" }],
+        destination: "https://shaikmohamedfahad.com/",
+        permanent: true,
+      },
+      {
+        source: "/:path+",
+        has: [{ type: "host", value: "www.shaikmohamedfahad.com" }],
+        destination: "https://shaikmohamedfahad.com/:path+",
+        permanent: true,
+      },
+    ]
+  },
+  async headers() {
+    return [
+      {
+        source: "/_next/static/media/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
+    ]
+  },
   async rewrites() {
     return [
       { source: "/favicon.ico", destination: "/favicon/favicon.ico" },

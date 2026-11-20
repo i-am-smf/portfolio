@@ -8,9 +8,9 @@ export type TimelineItem = {
 
 export const timeline: TimelineItem[] = [
   {
-    date: "Sep 2025 – Present",
+    date: "Sep 2025 – Oct 2026",
     title: "Senior Software Developer",
-    detail: "Nexudo Tech Solutions, Chennai. Currently serving notice.",
+    detail: "Nexudo Tech Solutions, Chennai. Left in October 2026.",
     kind: "Work",
     href: "/experience",
   },
