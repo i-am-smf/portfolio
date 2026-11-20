@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import type React from "react"
+import Script from "next/script"
 import "@/styles/globals.css"
 import { Source_Sans_3, Source_Serif_4 } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -8,6 +9,7 @@ import { Footer } from "@/components/ui/footer"
 import { getSiteUrl } from "@/lib/site"
 
 const siteUrl = getSiteUrl()
+const gtmId = "GTM-MTL46X6T"
 
 const shareDescription =
   "Shaik Mohamed Fahad T is a software developer in Dubai who designs workflows and builds them with Python, Flask, React, Next.js, and Flutter."
@@ -152,6 +154,23 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sourceSans.variable} ${sourceSerif.variable}`} suppressHydrationWarning>
       <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${gtmId}');
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`}
+        </Script>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
         <ThemeProvider attribute="class" forcedTheme="light" enableSystem={false} disableTransitionOnChange>
           <div className="flex min-h-dvh flex-col">
