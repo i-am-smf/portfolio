@@ -3,7 +3,8 @@
 import { useEffect, useId, useRef, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { MenuIcon } from "@animateicons/react/lucide/menu-icon"
+import { XIcon } from "@animateicons/react/lucide/x-icon"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
@@ -133,7 +134,7 @@ export function Header() {
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             onClick={() => setIsMobileMenuOpen((open) => !open)}
           >
-            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMobileMenuOpen ? <XIcon size={20} /> : <MenuIcon size={20} />}
           </button>
         </div>
       </div>
@@ -161,7 +162,7 @@ export function Header() {
                 className="inline-flex h-11 items-center gap-2 rounded-md px-3 text-sm"
                 onClick={closeMenu}
               >
-                <X className="h-5 w-5" />
+                <XIcon size={20} />
                 Close menu
               </button>
             </div>

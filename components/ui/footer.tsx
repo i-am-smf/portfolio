@@ -19,7 +19,7 @@ export function Footer() {
             <Link href="/" className="inline-flex min-h-11 items-center font-serif text-lg font-semibold">
               Shaik Mohamed Fahad T
             </Link>
-            <p className="text-sm text-muted-foreground">Software developer in Chennai</p>
+            <p className="text-sm text-muted-foreground">Software developer in Hor Al Anz, Deira, Dubai</p>
           </div>
 
           <ul className="flex flex-wrap items-center gap-x-5">
@@ -62,6 +62,8 @@ export function Footer() {
               alt="Established online - Public launch record"
               width={255}
               height={55}
+              loading="lazy"
+              decoding="async"
               className="h-auto w-[min(100%,255px)]"
             />
           </a>

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { MessageCircle } from "lucide-react"
+import { MessageCircleIcon } from "@animateicons/react/lucide/message-circle-icon"
 import { cn } from "@/lib/utils"
 
 export const discordUsername = "i_am_smf_.py"
@@ -50,7 +50,7 @@ export function CopyDiscordUsername({
       onClick={copy}
       className={cn("inline-flex min-h-11 w-full items-center gap-3 rounded-md px-2 text-left")}
     >
-      <MessageCircle className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+      <MessageCircleIcon size={20} className="shrink-0 text-primary" aria-hidden="true" />
       <span className="min-w-0">
         <span className="block text-sm text-muted-foreground">Discord</span>
         <span className="block font-medium">{discordUsername}</span>

@@ -1,6 +1,8 @@
 "use client"
 
-import { Download, ExternalLink, Printer } from "lucide-react"
+import { DownloadIcon } from "@animateicons/react/lucide/download-icon"
+import { ExternalLinkIcon } from "@animateicons/react/lucide/external-link-icon"
+import { PrinterIcon } from "@animateicons/react/lucide/printer-icon"
 import { Button } from "@/components/ui/button"
 
 const resumePath = "/Shaik_Mohamed_Fahad_Resume.pdf"
@@ -25,18 +27,18 @@ export function ResumeViewer() {
       <div className="flex flex-wrap gap-3">
         <Button asChild>
           <a href={resumePath} download={resumeName}>
-            <Download className="h-4 w-4" aria-hidden="true" />
+            <DownloadIcon size={16} aria-hidden="true" />
             Download
           </a>
         </Button>
         <Button asChild variant="outline">
           <a href={resumePath} target="_blank" rel="noopener noreferrer">
-            <ExternalLink className="h-4 w-4" aria-hidden="true" />
+            <ExternalLinkIcon size={16} aria-hidden="true" />
             Open
           </a>
         </Button>
         <Button type="button" variant="outline" className="hidden min-[768px]:inline-flex" onClick={printResume}>
-          <Printer className="h-4 w-4" aria-hidden="true" />
+          <PrinterIcon size={16} aria-hidden="true" />
           Print
         </Button>
       </div>

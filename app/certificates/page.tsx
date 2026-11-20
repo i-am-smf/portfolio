@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ExternalLink } from "lucide-react"
+import { ExternalLinkIcon } from "@animateicons/react/lucide/external-link-icon"
 import { PageFrame, PageTitle } from "@/components/site/page-frame"
 import { ImageModal } from "@/components/ui/image-modal"
 
@@ -78,7 +78,7 @@ export default function CertificatesPage() {
                 className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary"
               >
                 View organization
-                <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                <ExternalLinkIcon size={16} aria-hidden="true" />
               </Link>
             </li>
           ))}

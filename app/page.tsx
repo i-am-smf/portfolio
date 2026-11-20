@@ -2,7 +2,13 @@ import type { Metadata } from "next"
 import type { ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Database, Globe, MapPin, Server, Smartphone, Users, Workflow } from "lucide-react"
+import { DatabaseIcon } from "@animateicons/react/lucide/database-icon"
+import { GlobeIcon } from "@animateicons/react/lucide/globe-icon"
+import { MapPinIcon } from "@animateicons/react/lucide/map-pin-icon"
+import { ServerIcon } from "@animateicons/react/lucide/server-icon"
+import { SmartphoneIcon } from "@animateicons/react/lucide/smartphone-icon"
+import { UsersIcon } from "@animateicons/react/lucide/users-icon"
+import { WorkflowIcon } from "@animateicons/react/lucide/workflow-icon"
 import { Button } from "@/components/ui/button"
 import { SectionTitle } from "@/components/site/page-frame"
 import { ProjectCard } from "@/components/site/project-card"
@@ -17,33 +23,33 @@ const skills = [
     title: "Application design",
     description:
       "Workflow design, screen and page design, and process mapping so a product's steps are clear before they are built.",
-    icon: Workflow,
+    icon: WorkflowIcon,
   },
   {
     title: "Python and APIs",
     description:
       "Python and Flask for APIs, automation tools, and secure communication systems, turning a planned workflow into working software.",
-    icon: Server,
+    icon: ServerIcon,
   },
   {
     title: "Web development",
     description: "React and Next.js for product websites and application interfaces, including PostgreSQL-backed sites.",
-    icon: Globe,
+    icon: GlobeIcon,
   },
   {
     title: "Mobile development",
     description: "Flutter and Dart for mobile application structure, screen layouts, and shopping or service workflows.",
-    icon: Smartphone,
+    icon: SmartphoneIcon,
   },
   {
     title: "Database management",
     description: "SQL, MySQL, and PostgreSQL, including database schema design for the products I work on.",
-    icon: Database,
+    icon: DatabaseIcon,
   },
   {
     title: "Client and team work",
     description: "Client management, leadership, and collaboration across design and development through full project delivery.",
-    icon: Users,
+    icon: UsersIcon,
   },
 ]
 
@@ -108,10 +114,10 @@ export default function Page() {
               {profile.name}
             </h1>
             <p className="mt-4 max-w-[42ch] text-lg leading-relaxed text-foreground">{profile.role}</p>
-            <p className="mt-3 inline-flex items-center gap-2 text-muted-foreground">
-              <MapPin className="h-4 w-4" aria-hidden="true" />
-              {profile.location} {profile.postalCode}
-            </p>
+            <div className="mt-3 inline-flex items-center gap-2 text-muted-foreground">
+              <MapPinIcon size={16} aria-hidden="true" />
+              {profile.location}
+            </div>
             <ul className="mt-8 divide-y divide-border border-y border-border">
               <li className="py-3 text-sm">Senior Software Developer, Nexudo Tech Solutions</li>
               <li className="py-3 text-sm">Freelance full-stack websites, 2023–2025</li>
@@ -210,9 +216,9 @@ export default function Page() {
               return (
                 <article key={skill.title} className="min-w-0 rounded-lg border border-border bg-card p-6">
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-secondary text-primary">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </span>
+                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-secondary text-primary">
+                      <Icon size={20} aria-hidden="true" />
+                    </div>
                     <h3 className="min-w-0 font-serif text-xl font-semibold leading-snug">{skill.title}</h3>
                   </div>
                   <p className="mt-4 text-base leading-relaxed text-muted-foreground">{skill.description}</p>
@@ -256,7 +262,7 @@ export default function Page() {
           <div>
             <SectionTitle>Contact</SectionTitle>
             <p className="mt-4 max-w-[42ch] text-muted-foreground">
-              {profile.location} {profile.postalCode}
+              {profile.location}
             </p>
           </div>
           <div className="flex min-w-0 flex-col gap-1">

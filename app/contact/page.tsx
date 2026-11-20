@@ -1,7 +1,12 @@
 "use client"
 
 import Link from "next/link"
-import { Github, Linkedin, Mail, MapPin, Instagram, FileText } from "lucide-react"
+import { GithubIcon } from "@animateicons/react/lucide/github-icon"
+import { LinkedinIcon } from "@animateicons/react/lucide/linkedin-icon"
+import { MailIcon } from "@animateicons/react/lucide/mail-icon"
+import { MapPinIcon } from "@animateicons/react/lucide/map-pin-icon"
+import { InstagramIcon } from "@animateicons/react/lucide/instagram-icon"
+import { FileTextIcon } from "@animateicons/react/lucide/file-text-icon"
 import { Button } from "@/components/ui/button"
 import { PageFrame, PageTitle } from "@/components/site/page-frame"
 import { CopyDiscordUsername } from "@/components/site/copy-discord"
@@ -13,7 +18,7 @@ export default function ContactPage() {
       <PageFrame>
         <PageTitle>Contact</PageTitle>
         <p className="mt-4 max-w-[52ch] text-muted-foreground">
-          Shaik Mohamed Fahad is a software developer in Chennai and is currently serving notice as Senior Software
+          Shaik Mohamed Fahad is a software developer in Hor Al Anz, Deira, Dubai and is currently serving notice as Senior Software
           Developer at Nexudo Tech Solutions. Use any option below to get in touch.
         </p>
 
@@ -30,35 +35,35 @@ export default function ContactPage() {
             <h2 className="font-serif text-2xl font-semibold">How to reach me</h2>
             <div className="mt-6 flex flex-col">
               <a href="mailto:fahadguy8@gmail.com" className="inline-flex min-h-11 items-center gap-3 break-all">
-                <Mail className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                <MailIcon size={20} className="shrink-0 text-primary" aria-hidden="true" />
                 <span>
                   <span className="block text-sm text-muted-foreground">Email</span>
                   fahadguy8@gmail.com
                 </span>
               </a>
-              <p className="inline-flex min-h-11 items-center gap-3">
-                <MapPin className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+              <div className="inline-flex min-h-11 items-center gap-3">
+                <MapPinIcon size={20} className="shrink-0 text-primary" aria-hidden="true" />
                 <span>
                   <span className="block text-sm text-muted-foreground">Location</span>
-                  Chennai, Tamil Nadu 600042, India
+                  Hor Al Anz, Deira, Dubai
                 </span>
-              </p>
+              </div>
             </div>
 
             <h2 className="mt-8 font-serif text-2xl font-semibold">Profiles and resume</h2>
             <div className="mt-6 grid gap-2">
-              <ProfileLink href="https://github.com/i-am-smf" label="GitHub" icon={Github} />
+              <ProfileLink href="https://github.com/i-am-smf" label="GitHub" icon={GithubIcon} />
               <ProfileLink
                 href="https://www.linkedin.com/in/shaik-mohamed-fahad-826971178"
                 label="LinkedIn"
-                icon={Linkedin}
+                icon={LinkedinIcon}
               />
-              <ProfileLink href="https://www.instagram.com/i_am_smf_/" label="Instagram" icon={Instagram} />
+              <ProfileLink href="https://www.instagram.com/i_am_smf_/" label="Instagram" icon={InstagramIcon} />
               <CopyDiscordUsername />
             </div>
             <Button asChild className="mt-6">
               <a href="/Shaik_Mohamed_Fahad_Resume.pdf" download="Shaik_Mohamed_Fahad_Resume.pdf">
-                <FileText className="h-4 w-4" />
+                <FileTextIcon size={16} />
                 Download resume
               </a>
             </Button>
@@ -76,7 +81,7 @@ function ProfileLink({
 }: {
   href: string
   label: string
-  icon: typeof Github
+  icon: typeof GithubIcon
 }) {
   return (
     <Link
@@ -85,7 +90,7 @@ function ProfileLink({
       rel="noopener noreferrer"
       className="inline-flex min-h-11 items-center gap-3 rounded-md px-2"
     >
-      <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+      <Icon size={20} className="text-primary" aria-hidden="true" />
       {label}
     </Link>
   )

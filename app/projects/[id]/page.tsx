@@ -6,32 +6,30 @@ import { clampMetaDescription } from "@/lib/site"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { PageTitle } from "@/components/site/page-frame"
-import {
-  Github,
-  Database,
-  Users,
-  WrenchIcon,
-  MessageSquare,
-  Search,
-  Calendar,
-  ClipboardList,
-  Clock,
-  AlertTriangle,
-  PowerOff,
-  MousePointer,
-  Lock,
-  Shield,
-  Smartphone,
-  Key,
-  ShoppingCart,
-  PercentIcon,
-  BarChart2,
-  Layers,
-  Type,
-  Settings,
-  Server,
-  Zap,
-} from "lucide-react"
+import { GithubIcon } from "@animateicons/react/lucide/github-icon"
+import { DatabaseIcon } from "@animateicons/react/lucide/database-icon"
+import { UsersIcon } from "@animateicons/react/lucide/users-icon"
+import { WrenchIcon } from "@animateicons/react/lucide/wrench-icon"
+import { MessageSquareIcon } from "@animateicons/react/lucide/message-square-icon"
+import { SearchIcon } from "@animateicons/react/lucide/search-icon"
+import { CalendarIcon } from "@animateicons/react/lucide/calendar-icon"
+import { ClipboardListIcon } from "@animateicons/react/lucide/clipboard-list-icon"
+import { ClockIcon } from "@animateicons/react/lucide/clock-icon"
+import { TriangleAlertIcon } from "@animateicons/react/lucide/triangle-alert-icon"
+import { PowerOffIcon } from "@animateicons/react/lucide/power-off-icon"
+import { MousePointerIcon } from "@animateicons/react/lucide/mouse-pointer-icon"
+import { LockIcon } from "@animateicons/react/lucide/lock-icon"
+import { ShieldIcon } from "@animateicons/react/lucide/shield-icon"
+import { SmartphoneIcon } from "@animateicons/react/lucide/smartphone-icon"
+import { KeyIcon } from "@animateicons/react/lucide/key-icon"
+import { ShoppingCartIcon } from "@animateicons/react/lucide/shopping-cart-icon"
+import { PercentIcon } from "@animateicons/react/lucide/percent-icon"
+import { ChartColumnIcon } from "@animateicons/react/lucide/chart-column-icon"
+import { LayersIcon } from "@animateicons/react/lucide/layers-icon"
+import { TypeIcon } from "@animateicons/react/lucide/type-icon"
+import { SettingsIcon } from "@animateicons/react/lucide/settings-icon"
+import { ServerIcon } from "@animateicons/react/lucide/server-icon"
+import { ZapIcon } from "@animateicons/react/lucide/zap-icon"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 interface ProjectDetails {
@@ -81,17 +79,17 @@ const projectsData: ProjectDetails[] = [
     ],
     features: [
       {
-        icon: <Layers className="h-5 w-5" />,
+        icon: <LayersIcon size={20} />,
         title: "Complete application design",
         description: "Database schema, mobile app structure, and admin dashboard website.",
       },
       {
-        icon: <ShoppingCart className="h-5 w-5" />,
+        icon: <ShoppingCartIcon size={20} />,
         title: "Shopping workflow",
         description: "Screen layouts for product browsing, cart, and checkout.",
       },
       {
-        icon: <Smartphone className="h-5 w-5" />,
+        icon: <SmartphoneIcon size={20} />,
         title: "Payment processing",
         description: "Checkout workflow with integrated payment processing.",
       },
@@ -114,17 +112,17 @@ const projectsData: ProjectDetails[] = [
     technologies: [],
     features: [
       {
-        icon: <Users className="h-5 w-5" />,
+        icon: <UsersIcon size={20} />,
         title: "Customer accounts",
         description: "Application structure for managing customer accounts.",
       },
       {
-        icon: <Calendar className="h-5 w-5" />,
+        icon: <CalendarIcon size={20} />,
         title: "Scheduling and assignments",
         description: "Service scheduling and technician assignments.",
       },
       {
-        icon: <ClipboardList className="h-5 w-5" />,
+        icon: <ClipboardListIcon size={20} />,
         title: "Booking, status, and reports",
         description: "Workflows for booking services, tracking job status, and generating service reports.",
       },
@@ -147,17 +145,17 @@ const projectsData: ProjectDetails[] = [
     technologies: [],
     features: [
       {
-        icon: <Layers className="h-5 w-5" />,
+        icon: <LayersIcon size={20} />,
         title: "Course catalog and enrollment",
         description: "Application structure for the course catalog and student enrollment.",
       },
       {
-        icon: <ShoppingCart className="h-5 w-5" />,
+        icon: <ShoppingCartIcon size={20} />,
         title: "Payment handling",
         description: "Structure for taking payment when a student enrolls.",
       },
       {
-        icon: <Users className="h-5 w-5" />,
+        icon: <UsersIcon size={20} />,
         title: "Student access",
         description: "Screens for course browsing, checkout, and the student dashboard.",
       },
@@ -180,17 +178,17 @@ const projectsData: ProjectDetails[] = [
     technologies: [],
     features: [
       {
-        icon: <Database className="h-5 w-5" />,
+        icon: <DatabaseIcon size={20} />,
         title: "Shipment records",
         description: "Application structure for shipment records and cargo tracking.",
       },
       {
-        icon: <Server className="h-5 w-5" />,
+        icon: <ServerIcon size={20} />,
         title: "Vehicle assignment",
         description: "Structure for assigning vehicles to shipments.",
       },
       {
-        icon: <ClipboardList className="h-5 w-5" />,
+        icon: <ClipboardListIcon size={20} />,
         title: "Dispatch and delivery",
         description: "Workflows for dispatch management, real-time shipment status, and delivery confirmation.",
       },
@@ -212,17 +210,17 @@ const projectsData: ProjectDetails[] = [
     technologies: [],
     features: [
       {
-        icon: <Layers className="h-5 w-5" />,
+        icon: <LayersIcon size={20} />,
         title: "Subscription plans",
         description: "Application structure for subscription plans and recurring orders.",
       },
       {
-        icon: <Calendar className="h-5 w-5" />,
+        icon: <CalendarIcon size={20} />,
         title: "Delivery scheduling",
         description: "Structure for scheduling deliveries against recurring orders.",
       },
       {
-        icon: <ShoppingCart className="h-5 w-5" />,
+        icon: <ShoppingCartIcon size={20} />,
         title: "Sign-up and tracking",
         description: "Screens for subscription sign-up, meal customization, and delivery tracking.",
       },
@@ -264,22 +262,22 @@ const projectsData: ProjectDetails[] = [
     ],
     features: [
       {
-        icon: <Users className="h-5 w-5" />,
+        icon: <UsersIcon size={20} />,
         title: "Customer Management",
         description: "Add, edit, and store customer information",
       },
       {
-        icon: <WrenchIcon className="h-5 w-5" />,
+        icon: <WrenchIcon size={20} />,
         title: "Service Records",
         description: "Track service visits, parts replaced, and charges",
       },
       {
-        icon: <MessageSquare className="h-5 w-5" />,
+        icon: <MessageSquareIcon size={20} />,
         title: "Complaint Handling",
         description: "Manage and resolve customer complaints efficiently",
       },
       {
-        icon: <Search className="h-5 w-5" />,
+        icon: <SearchIcon size={20} />,
         title: "Search & Reports",
         description: "Easily search customers and generate detailed records",
       },
@@ -341,27 +339,27 @@ my_cursor = mydb.cursor()`,
     ],
     features: [
       {
-        icon: <Clock className="h-5 w-5" />,
+        icon: <ClockIcon size={20} />,
         title: "Idle Time Detection",
         description: "Tracks system inactivity in real-time",
       },
       {
-        icon: <AlertTriangle className="h-5 w-5" />,
+        icon: <TriangleAlertIcon size={20} />,
         title: "Alert Notification",
         description: "Warns the user before initiating shutdown",
       },
       {
-        icon: <Calendar className="h-5 w-5" />,
+        icon: <CalendarIcon size={20} />,
         title: "Countdown Timer",
         description: "Provides a 30-second window for user intervention",
       },
       {
-        icon: <PowerOff className="h-5 w-5" />,
+        icon: <PowerOffIcon size={20} />,
         title: "Automatic Shutdown",
         description: "Shuts down the system if no activity is detected",
       },
       {
-        icon: <MousePointer className="h-5 w-5" />,
+        icon: <MousePointerIcon size={20} />,
         title: "User Override",
         description: "Allows users to cancel shutdown by interacting with the alert window",
       },
@@ -447,27 +445,27 @@ class Countdown:
     ],
     features: [
       {
-        icon: <Lock className="h-5 w-5" />,
+        icon: <LockIcon size={20} />,
         title: "End-to-End Encryption",
         description: "All messages are encrypted using Fernet encryption for secure communication",
       },
       {
-        icon: <Shield className="h-5 w-5" />,
+        icon: <ShieldIcon size={20} />,
         title: "Blockchain Authentication",
         description: "User identities are verified using blockchain-generated hash values",
       },
       {
-        icon: <Smartphone className="h-5 w-5" />,
+        icon: <SmartphoneIcon size={20} />,
         title: "Cross-Platform Compatibility",
         description: "Works on desktop, mobile, and web applications",
       },
       {
-        icon: <Database className="h-5 w-5" />,
+        icon: <DatabaseIcon size={20} />,
         title: "Decentralized Message Integrity",
         description: "Uses blockchain to prevent message tampering",
       },
       {
-        icon: <Key className="h-5 w-5" />,
+        icon: <KeyIcon size={20} />,
         title: "User Authentication",
         description: "Secure login and identity verification mechanisms",
       },
@@ -551,27 +549,27 @@ def verify_message(message, blockchain_hash):
     ],
     features: [
       {
-        icon: <Type className="h-5 w-5" />,
+        icon: <TypeIcon size={20} />,
         title: "Automated Font Application",
         description: "Ensures newly created channels adopt the selected font style automatically",
       },
       {
-        icon: <Layers className="h-5 w-5" />,
+        icon: <LayersIcon size={20} />,
         title: "Diverse Font Selection",
         description: "Choose from a variety of pre-defined fonts for customization",
       },
       {
-        icon: <Settings className="h-5 w-5" />,
+        icon: <SettingsIcon size={20} />,
         title: "Simple Activation & Management",
         description: "Easily enable or disable the Auto Font System using commands",
       },
       {
-        icon: <Server className="h-5 w-5" />,
+        icon: <ServerIcon size={20} />,
         title: "Seamless Discord Integration",
         description: "Works efficiently across multiple Discord servers",
       },
       {
-        icon: <Zap className="h-5 w-5" />,
+        icon: <ZapIcon size={20} />,
         title: "Customization Flexibility",
         description: "Tailor font styles to match server themes and preferences",
       },
@@ -654,32 +652,32 @@ async def font_generate(self, interaction: discord.Interaction):
     ],
     features: [
       {
-        icon: <Smartphone className="h-5 w-5" />,
+        icon: <SmartphoneIcon size={20} />,
         title: "Touchscreen Compatibility",
         description: "Designed for touchscreen-based devices",
       },
       {
-        icon: <Database className="h-5 w-5" />,
+        icon: <DatabaseIcon size={20} />,
         title: "Product Management",
         description: "Add, update, and view available products",
       },
       {
-        icon: <ShoppingCart className="h-5 w-5" />,
+        icon: <ShoppingCartIcon size={20} />,
         title: "Sales Processing",
         description: "Manage transactions with automatic total calculations",
       },
       {
-        icon: <PercentIcon className="h-5 w-5" />,
+        icon: <PercentIcon size={20} />,
         title: "Discount Handling",
         description: "Apply discounts and calculate net amounts",
       },
       {
-        icon: <BarChart2 className="h-5 w-5" />,
+        icon: <ChartColumnIcon size={20} />,
         title: "Inventory Tracking",
         description: "Monitor stock levels and reorder points",
       },
       {
-        icon: <Layers className="h-5 w-5" />,
+        icon: <LayersIcon size={20} />,
         title: "Dynamic UI",
         description: "A Tkinter-based interface with real-time updates",
       },
@@ -796,7 +794,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           <div className="mt-6">
             <Button asChild>
               <Link href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="h-4 w-4" />
+                <GithubIcon size={16} />
                 View source
               </Link>
             </Button>
@@ -869,7 +867,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
             <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))]">
               {project.features.map((feature, index) => (
                 <article key={index} className="min-w-0 rounded-lg border border-border bg-card p-5">
-                  <h3 className="font-serif text-lg font-semibold leading-snug">{feature.title}</h3>
+                  <div className="flex items-center gap-3">
+                    <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-secondary text-primary">
+                      {feature.icon}
+                    </div>
+                    <h3 className="min-w-0 font-serif text-lg font-semibold leading-snug">{feature.title}</h3>
+                  </div>
                   <p className="mt-2 leading-relaxed text-muted-foreground">{feature.description}</p>
                 </article>
               ))}

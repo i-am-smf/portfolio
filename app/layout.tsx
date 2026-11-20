@@ -9,10 +9,9 @@ import { getSiteUrl } from "@/lib/site"
 
 const siteUrl = getSiteUrl()
 
-const shareTitle = "Shaik Mohamed Fahad T | Software Developer in Chennai"
 const shareDescription =
-  "Software developer in Chennai who designs application workflows and builds them with Python, Flask, React, Next.js, and Flutter."
-const shareAlt = "Shaik Mohamed Fahad T, software developer in Chennai"
+  "Shaik Mohamed Fahad T is a software developer in Dubai who designs workflows and builds them with Python, Flask, React, Next.js, and Flutter."
+const shareAlt = "Shaik Mohamed Fahad T, software developer in Dubai"
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -23,39 +22,48 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Shaik Mohamed Fahad T | Software Developer in Chennai",
+    default: "Shaik Mohamed Fahad T | Software Developer in Dubai",
     template: "%s | Shaik Mohamed Fahad",
   },
-  description:
-    "Shaik Mohamed Fahad T is a software developer in Chennai who designs application workflows and builds them in Python, Flask, React, Next.js, and Flutter.",
-  authors: [{ name: "Shaik Mohamed Fahad T" }],
+  description: shareDescription,
+  applicationName: "Shaik Mohamed Fahad",
+  authors: [{ name: "Shaik Mohamed Fahad T", url: siteUrl }],
+  creator: "Shaik Mohamed Fahad T",
   metadataBase: new URL(siteUrl),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: shareTitle,
-    description: shareDescription,
     type: "website",
+    locale: "en_AE",
     siteName: "Shaik Mohamed Fahad",
     images: [
       {
-        url: "/og/16x9.png",
-        width: 1672,
-        height: 941,
+        url: "/og/16x9.jpg",
+        width: 1200,
+        height: 630,
         alt: shareAlt,
-        type: "image/png",
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: shareTitle,
-    description: shareDescription,
     images: [
       {
-        url: "/og/16x9.png",
-        width: 1672,
-        height: 941,
+        url: "/og/16x9.jpg",
+        width: 1200,
+        height: 630,
         alt: shareAlt,
-        type: "image/png",
+        type: "image/jpeg",
       },
     ],
   },
@@ -71,19 +79,30 @@ export const metadata: Metadata = {
 
 const personJsonLd = {
   "@context": "https://schema.org",
+  "@graph": [
+    {
+  "@type": "WebSite",
+  name: "Shaik Mohamed Fahad",
+  url: siteUrl,
+  inLanguage: "en",
+  description: shareDescription,
+    },
+    {
   "@type": "Person",
   name: "Shaik Mohamed Fahad T",
   alternateName: "Shaik Mohamed Fahad",
+  url: siteUrl,
+  image: `${siteUrl}/og/16x9.jpg`,
   jobTitle: "Senior Software Developer",
   description:
     "Software developer with hands-on experience designing application workflows, screens, and processes, alongside Python development for APIs, automation tools, and secure communication systems.",
   email: "mailto:fahadguy8@gmail.com",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Chennai",
-    addressRegion: "Tamil Nadu",
-    postalCode: "600042",
-    addressCountry: "IN",
+    streetAddress: "Hor Al Anz",
+    addressLocality: "Deira",
+    addressRegion: "Dubai",
+    addressCountry: "AE",
   },
   worksFor: {
     "@type": "Organization",
@@ -111,6 +130,9 @@ const personJsonLd = {
   sameAs: [
     "https://github.com/i-am-smf",
     "https://www.linkedin.com/in/shaik-mohamed-fahad-826971178",
+    "https://www.instagram.com/i_am_smf_/",
+  ],
+    },
   ],
 }
 
