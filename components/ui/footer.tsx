@@ -1,11 +1,14 @@
 import Link from "next/link"
 import { CopyDiscordUsername } from "@/components/site/copy-discord"
+import { profile } from "@/lib/profile"
 
 const links = [
   { href: "https://github.com/i-am-smf", label: "GitHub" },
   { href: "https://www.linkedin.com/in/shaik-mohamed-fahad-826971178", label: "LinkedIn" },
   { href: "https://www.instagram.com/i_am_smf_/", label: "Instagram" },
-  { href: "mailto:fahadguy8@gmail.com", label: "Email" },
+  { href: `tel:${profile.phoneHref}`, label: profile.phone },
+  { href: profile.whatsapp, label: "WhatsApp" },
+  { href: `mailto:${profile.email}`, label: "Email" },
 ]
 
 export function Footer() {

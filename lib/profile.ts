@@ -4,6 +4,9 @@ export const profile = {
   role: "Software Developer | Python Developer",
   location: "Hor Al Anz, Deira, Dubai",
   email: "fahadguy8@gmail.com",
+  phone: "+971 56 600 5720",
+  phoneHref: "+971566005720",
+  whatsapp: "https://wa.me/971566005720",
   summary:
     "Software developer with hands-on experience designing application workflows, screens, and processes, alongside Python development for APIs, automation tools, and secure communication systems. Comfortable working across design and development to turn planned workflows into working software. Skilled in problem-solving, quick to learn new technologies, and effective in fast-paced development environments.",
 }

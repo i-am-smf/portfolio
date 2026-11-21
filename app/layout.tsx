@@ -99,6 +99,7 @@ const personJsonLd = {
   description:
     "Software developer with hands-on experience designing application workflows, screens, and processes, alongside Python development for APIs, automation tools, and secure communication systems.",
   email: "mailto:fahadguy8@gmail.com",
+  telephone: "+971566005720",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Hor Al Anz",

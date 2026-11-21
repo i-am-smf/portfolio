@@ -4,6 +4,8 @@ import Link from "next/link"
 import { GithubIcon } from "@animateicons/react/lucide/github-icon"
 import { LinkedinIcon } from "@animateicons/react/lucide/linkedin-icon"
 import { MailIcon } from "@animateicons/react/lucide/mail-icon"
+import { PhoneIcon } from "@animateicons/react/lucide/phone-icon"
+import { WhatsappIcon } from "@animateicons/react/huge/whatsapp-icon"
 import { MapPinIcon } from "@animateicons/react/lucide/map-pin-icon"
 import { InstagramIcon } from "@animateicons/react/lucide/instagram-icon"
 import { FileTextIcon } from "@animateicons/react/lucide/file-text-icon"
@@ -11,6 +13,7 @@ import { Button } from "@/components/ui/button"
 import { PageFrame, PageTitle } from "@/components/site/page-frame"
 import { CopyDiscordUsername } from "@/components/site/copy-discord"
 import { ContactForm } from "@/components/site/contact-form"
+import { profile } from "@/lib/profile"
 
 export default function ContactPage() {
   return (
@@ -34,6 +37,25 @@ export default function ContactPage() {
           <section className="min-w-0 rounded-lg border border-border bg-card p-6">
             <h2 className="font-serif text-2xl font-semibold">How to reach me</h2>
             <div className="mt-6 flex flex-col">
+              <a href={`tel:${profile.phoneHref}`} className="inline-flex min-h-11 items-center gap-3">
+                <PhoneIcon size={20} className="shrink-0 text-primary" aria-hidden="true" />
+                <span>
+                  <span className="block text-sm text-muted-foreground">Mobile</span>
+                  {profile.phone}
+                </span>
+              </a>
+              <a
+                href={profile.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center gap-3"
+              >
+                <WhatsappIcon size={20} className="shrink-0 text-primary" aria-hidden="true" />
+                <span>
+                  <span className="block text-sm text-muted-foreground">WhatsApp</span>
+                  {profile.phone}
+                </span>
+              </a>
               <a href="mailto:fahadguy8@gmail.com" className="inline-flex min-h-11 items-center gap-3 break-all">
                 <MailIcon size={20} className="shrink-0 text-primary" aria-hidden="true" />
                 <span>

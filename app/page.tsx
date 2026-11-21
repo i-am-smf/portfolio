@@ -266,8 +266,19 @@ export default function Page() {
             </p>
           </div>
           <div className="flex min-w-0 flex-col gap-1">
-            <a href="mailto:fahadguy8@gmail.com" className="inline-flex min-h-11 items-center break-all text-base">
-              fahadguy8@gmail.com
+            <a href={`tel:${profile.phoneHref}`} className="inline-flex min-h-11 items-center text-base">
+              {profile.phone}
+            </a>
+            <a
+              href={profile.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center text-base"
+            >
+              WhatsApp
+            </a>
+            <a href={`mailto:${profile.email}`} className="inline-flex min-h-11 items-center break-all text-base">
+              {profile.email}
             </a>
             <Button asChild className="mt-3 w-fit">
               <Link href="/contact">Contact page</Link>
